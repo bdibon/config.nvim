@@ -19,7 +19,7 @@ vim.opt.splitright = true
 
 vim.opt.clipboard = "unnamedplus"
 
-local group = vim.api.nvim_create_augroup("Settings", {})
+local group = vim.api.nvim_create_augroup("MySettings", {})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "help",
