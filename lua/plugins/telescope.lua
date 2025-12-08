@@ -81,5 +81,10 @@ return {
         cwd = vim.fs.joinpath(vim.fn.stdpath('data'), 'lazy')
       })
     end)
+
+    vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "Search [G]it [C]ommits" })
+    vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = "Search [G]it [B]ranches" })
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = "Search [G]it [S]tatus" })
+    vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = "Search [G]it [S]tash" })
   end
 }
