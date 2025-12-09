@@ -22,7 +22,7 @@ return {
           i = {
             ["<C-a>"] = { "<Home>", type = "command" },
             ["<C-e>"] = { "<End>", type = "command" },
-            ["<C-u>"] = false,
+            ["<C-l>"] = { "<C-u>", type = "command" },
           }
         }
       },
@@ -54,7 +54,9 @@ return {
 
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+    vim.keymap.set('n', '<leader>fy', builtin.command_history, { desc = 'Telescope command history' })
     vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Telescope quickfix' })
+    vim.keymap.set('n', '<leader>ft', builtin.colorscheme, { desc = 'Telescope find themes' })
     vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = 'Telescope find current buffer' })
 
     vim.keymap.set('n', '<leader>fd', function()
