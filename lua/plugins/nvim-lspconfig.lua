@@ -1,4 +1,4 @@
-return {
+local M = {
   "neovim/nvim-lspconfig",
   dependencies = {
     "mason-org/mason-lspconfig.nvim",
@@ -17,8 +17,31 @@ return {
     },
   },
   config = function()
+    -- Setup Vue
+    vim.lsp.config.vue_ls = {}
+
+    local vue_language_server_path = vim.fn.stdpath('data') ..
+        "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
+    local vue_plugin = {
+      name = '@vue/typescript-plugin',
+      location = vue_language_server_path,
+      languages = { 'vue' },
+      configNamespace = 'typescript',
+    }
+
+    local tsserver_filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
+
     -- Setup TypeScript (ts_ls)
-    vim.lsp.config.ts_ls = {}
+    vim.lsp.config.ts_ls = {
+      init_options = {
+        plugins = {
+          vue_plugin,
+        },
+      },
+      filetypes = tsserver_filetypes,
+    }
+    vim.lsp.enable({ 'ts_ls', 'vue_ls' })
 
     -- Setup Lua (lua_ls)
     vim.lsp.config.lua_ls = {
@@ -82,3 +105,5 @@ return {
     })
   end,
 }
+
+return M
