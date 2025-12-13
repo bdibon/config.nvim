@@ -41,7 +41,13 @@ local M = {
       },
       filetypes = tsserver_filetypes,
     }
-    vim.lsp.enable({ 'ts_ls', 'vue_ls' })
+
+    vim.lsp.enable({
+      'lua_ls',
+      'ts_ls',
+      'vue_ls',
+      'eslint'
+    })
 
     -- Setup Lua (lua_ls)
     vim.lsp.config.lua_ls = {
