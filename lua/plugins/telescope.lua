@@ -22,7 +22,7 @@ return {
           i = {
             ["<C-a>"] = { "<Home>", type = "command" },
             ["<C-e>"] = { "<End>", type = "command" },
-            ["<C-l>"] = { "<C-u>", type = "command" },
+            ["<C-z>"] = { "<C-u>", type = "command" },
           }
         }
       },
